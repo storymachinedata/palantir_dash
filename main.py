@@ -48,18 +48,23 @@ with col3:
 palantir_df_main = read_file(palantir_path)
 paula_cipi_df_main = read_file(paula_cipi_path)
 jan_hi_df_main = read_file(jan_hie_path)
+kath_brienne_main = read_file(kath_brienne_path)
+
+
 
 palantir_df = palantir_df_main[palantir_df_main['date']>=(dt.datetime.now()-dt.timedelta(days=filter_day))]
 paula_cipi_df = paula_cipi_df_main[paula_cipi_df_main['date']>=(dt.datetime.now()-dt.timedelta(days=filter_day))]
 jan_hi_df = jan_hi_df_main[jan_hi_df_main['date']>=(dt.datetime.now()-dt.timedelta(days=filter_day))]
+kath_brienne_df = kath_brienne_main[kath_brienne_main['date']>=(dt.datetime.now()-dt.timedelta(days=filter_day))]
 
 
 palantir_df = palantir_df.sort_values(by = ['yy-dd-mm','Total Interactions'], ascending=[ filters[filter_date][1], filters[filter_Interactions][1]])
 paula_cipi_df = paula_cipi_df.sort_values(by = ['yy-dd-mm','Total Interactions'], ascending=[ filters[filter_date][1], filters[filter_Interactions][1]])
 jan_hi_df = jan_hi_df.sort_values(by = ['yy-dd-mm','Total Interactions'], ascending=[ filters[filter_date][1], filters[filter_Interactions][1]])
+kath_brienne_df = kath_brienne_df.sort_values(by = ['yy-dd-mm','Total Interactions'], ascending=[ filters[filter_date][1], filters[filter_Interactions][1]])
 
 
-Palantir, Paula_Cipi, Jan_Hiesserich = st.tabs(['Palantir', 'Paula Cipierre', 'Jan Hiesserich'])
+Palantir, Paula_Cipi, Jan_Hiesserich, Kath_Brienne = st.tabs(['Palantir', 'Paula Cipierre', 'Jan Hiesserich', 'Katharina Brienne'])
 
 
 with Palantir:
@@ -109,6 +114,25 @@ with Jan_Hiesserich:
 
 	if  num_posts>0:
 		splits = jan_hi_df_copy.groupby(jan_hi_df_copy.index // 3)
+		for _, frames in splits:
+			frames = frames.reset_index(drop=True)
+			thumbnails = st.columns(frames.shape[0])
+			for i, c in frames.iterrows():
+				with thumbnails[i]:
+					printFunction(i, c, frames)               
+	else:
+		printError()
+
+
+with Kath_Brienne:
+	
+	kath_brienne_df = kath_brienne_df.reset_index(drop=True)
+	kath_brienne_df_copy = kath_brienne_df.copy()
+	num_posts = kath_brienne_df_copy.shape[0]
+	st.write(f'Total number of posts found: ', str(num_posts))
+
+	if  num_posts>0:
+		splits = kath_brienne_df_copy.groupby(kath_brienne_df_copy.index // 3)
 		for _, frames in splits:
 			frames = frames.reset_index(drop=True)
 			thumbnails = st.columns(frames.shape[0])

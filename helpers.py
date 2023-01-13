@@ -16,7 +16,7 @@ day = datetime.today().day
 palantir_path = 'https://phantombuster.s3.amazonaws.com/UhrenaxfEnY/xv0G0VRws9pU6ZsMf1uY2g/palantir.csv'
 paula_cipi_path = 'https://phantombuster.s3.amazonaws.com/UhrenaxfEnY/qmmv9cspSmqDQpn0QoRDdg/paula_cipi.csv'
 jan_hie_path = 'https://phantombuster.s3.amazonaws.com/UhrenaxfEnY/DpKxT9bGGT1HtVTj8BoFnA/jan_hiesserich.csv'
-
+kath_brienne_path = 'https://phantombuster.s3.amazonaws.com/UhrenaxfEnY/w2Tf62a4RFxsvwk63Tbs8A/katharina_brienne.csv'
 
 
 
