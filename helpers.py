@@ -80,9 +80,9 @@ def printFunction(i, rows, dataframe):
         st.write('Personal Account')
         st.write(rows['title']) #postType
         st.write('-----------')
-		if 'postImgUrl' in rows:
-        	if not pd.isnull(rows['postImgUrl']):
-            	st.image(rows['postImgUrl'])
+		
+        #if not pd.isnull(rows['postImgUrl']):
+         #   st.image(rows['postImgUrl'])
         st.info(rows['textContent'])  #postrowsontent
         st.write('Total Interactions 📈:  ',rows['Total Interactions']) #totInterarowstions
         st.write('Likes 👍:  ',rows['likeCount']) #totInterarowstions
