@@ -70,8 +70,9 @@ def getActualDate(url):
 
 
 def printFunction(i, rows, dataframe):
-    if 'profileImgUrl' in rows.columns and not pd.isnull(rows['profileImgUrl']):
-        st.image(rows['profileImgUrl'], width=150)
+    if 'profileImgUrl' in rows.columns:
+		if not pd.isnull(rows['profileImgUrl']):
+        	st.image(rows['profileImgUrl'], width=150)
 
     if not pd.isnull(rows['profileUrl']):
         #st.image(rows['profileImgUrl'], width=150)
