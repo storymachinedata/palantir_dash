@@ -94,13 +94,13 @@ def printFunction(i, rows, dataframe):
         with st.expander('Link to  Profile 🔗'):
                 st.write(rows['profileUrl']) #linktoProfile
     
-    if not pd.isnull(rows['logoUrl']):
-        st.image(rows['logoUrl'], width=150)
+    #if not pd.isnull(rows['logoUrl']):
+        #st.image(rows['logoUrl'], width=150)
         st.subheader(rows['companyName'])
         st.write('Corporate Account')
         st.write('👥:  ',rows['followerCount'])
-        if not pd.isnull(rows['postImgUrl']):
-            st.image(rows['postImgUrl'])
+        #if not pd.isnull(rows['postImgUrl']):
+         #   st.image(rows['postImgUrl'])
         st.info(rows['textContent'])  #postrowsontent
         st.write('Total Interactions 📈:  ',rows['Total Interactions']) #totInterarowstions
         st.write('Likes 👍:  ',rows['likeCount']) #totInterarowstions
